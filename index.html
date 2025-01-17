@@ -264,45 +264,90 @@
         </div>
     </div>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <div id="Contact" class="flex flex-col items-center px-4 py-8 lg:w-1/2 mx-auto">
         <h1 class="text-4xl lg:text-6xl font-semibold text-[#FFC857]">Contact</h1>
         <p class="text-lg mt-4 text-center max-w-3xl text-[#EAEAEA]">
             Er zijn verschillende manieren om contact met me op te nemen..
         </p>
         <h2 class="text-2xl font-medium mt-8">Stuur een email!</h2>
+        
+        <!-- Alert Message (hidden by default) -->
+        <div id="alert-message" class="hidden w-full max-w-lg mt-4 p-4 rounded-md">
+            <p id="alert-text" class="text-center"></p>
+        </div>
+
         <form id="contact-form" class="w-full mt-4 space-y-4 max-w-lg">
             <div>
                 <label for="name" class="block text-lg text-[#EAEAEA]">Naam:</label>
-                <input type="text" id="name" name="name" required class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
+                <input type="text" id="name" name="name" required 
+                    class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
             </div>
             <div>
                 <label for="email" class="block text-lg text-[#EAEAEA]">Email Adres:</label>
-                <input type="email" id="email" name="email" required class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
+                <input type="email" id="email" name="email" required 
+                    class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
             </div>
             <div>
                 <label for="message" class="block text-lg text-[#EAEAEA]">Bericht:</label>
-                <textarea id="message" name="message" required class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" rows="6"></textarea>
+                <textarea id="message" name="message" required 
+                        class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" 
+                        rows="6"></textarea>
             </div>
-            <button type="submit" class="w-full py-3 mt-4 bg-[#FFC857] text-black font-semibold rounded-md hover:bg-[#EAEAEA] focus:outline-none focus:ring-2 focus:ring-[#FFC857]">Verstuur</button>
+            <button type="submit" id="submit-button" 
+                    class="w-full py-3 mt-4 bg-[#FFC857] text-black font-semibold rounded-md hover:bg-[#EAEAEA] focus:outline-none focus:ring-2 focus:ring-[#FFC857]">
+                Verstuur
+            </button>
         </form>
     </div>
 
+    <!-- EmailJS CDN -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        emailjs.init('r_0bdy5cbRuSAUAhR');
 
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
+    <!-- Contact Form JavaScript -->
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("r_0bdy5cbRuSAUAhR"); // While not ideal, this is necessary for GitHub Pages
+        })();
+
+        // Form elements
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const alertMessage = document.getElementById('alert-message');
+        const alertText = document.getElementById('alert-text');
+
+        // Show alert function
+        function showAlert(message, isSuccess) {
+            alertMessage.className = `w-full max-w-lg mt-4 p-4 rounded-md ${isSuccess ? 'bg-green-500/20' : 'bg-red-500/20'}`;
+            alertText.className = isSuccess ? 'text-green-500' : 'text-red-500';
+            alertText.textContent = message;
+            alertMessage.classList.remove('hidden');
+        }
+
+        // Form submission handler
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Bezig met verzenden...';
+            
             emailjs.sendForm('service_bk0mrfr', 'template_rrs10cl', this)
-                .then(function(response) {
-                    console.log('Success:', response);
-                    alert("Je bericht is verzonden!");
-                }, function(error) {
-                    console.log('Error:', error);
-                    alert("Oops! Er is iets fout gegaan! Probeer het later opnieuw.");
+                .then(function() {
+                    showAlert('Je bericht is verzonden!', true);
+                    form.reset();
+                })
+                .catch(function(error) {
+                    showAlert('Oops! Er is iets fout gegaan! Probeer het later opnieuw.', false);
+                    console.error('Error:', error);
+                })
+                .finally(function() {
+                    // Re-enable button and restore text
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Verstuur';
                 });
-        });
+            });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
