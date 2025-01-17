@@ -16,6 +16,67 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+    <script>
+        window.onload = function() {
+            let slideIndex = 1;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            
+            // Make functions globally available
+            window.plusSlides = function(n) {
+                // First hide all slides
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.add("hidden");
+                    dots[i].classList.remove("bg-[#FFC857]");
+                    dots[i].classList.add("bg-gray-400");
+                }
+                
+                // Update index
+                slideIndex += n;
+                
+                // Handle wrapping
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                if (slideIndex < 1) {
+                    slideIndex = slides.length;
+                }
+                
+                // Show new slide
+                slides[slideIndex - 1].classList.remove("hidden");
+                dots[slideIndex - 1].classList.remove("bg-gray-400");
+                dots[slideIndex - 1].classList.add("bg-[#FFC857]");
+            }
+
+            window.currentSlide = function(n) {
+                // First hide all slides
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.add("hidden");
+                    dots[i].classList.remove("bg-[#FFC857]");
+                    dots[i].classList.add("bg-gray-400");
+                }
+                
+                slideIndex = n;
+                
+                // Show new slide
+                slides[slideIndex - 1].classList.remove("hidden");
+                dots[slideIndex - 1].classList.remove("bg-gray-400");
+                dots[slideIndex - 1].classList.add("bg-[#FFC857]");
+            }
+
+            // Initialize first slide
+            currentSlide(1);
+
+            // Optional: Add keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    plusSlides(-1);
+                } else if (e.key === 'ArrowRight') {
+                    plusSlides(1);
+                }
+            });
+        }
+    </script>
 </head>
 <body class="bg-[#1B1B1B] text-[#EAEAEA]">
     <!-- Header -->
@@ -37,19 +98,23 @@
         <!-- Project Description -->
         <div class="bg-[#242424] rounded-xl p-6 mb-8">
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Over dit project</h2>
-            <p class="text-[#EAEAEA] mb-4">[Project Description]</p>
+            <p class="text-[#EAEAEA] mb-4">Dit project is een van de eerste projecten waar ik moest samenwerken met iemand anders. In dit geval hebben ik en <a href="https://vdburg.site/" class="underline text-[#FFC857]">Son Bram van der Burg</a> galgje gemaakt met PHP. Het was erg leuk om samen te werken met een andere gepasioneerde programeur / vriend. Bij dit galgje spel heb je de keuze om een woord te laten genereren of samen met iemand te spelen. Speler 1 kan dan een woord invullen en speler 2 moet hem dan raden.</p>
         </div>
 
         <!-- Technologies Used -->
         <div class="bg-[#242424] rounded-xl p-6 mb-8">
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Gebruikte technologieën</h2>
             <div class="flex flex-wrap gap-3">
-                [Technology Tags]
+                <ul>
+                    <li>- PHP</li>
+                    <li>- HTML</li>
+                    <li>- CSS</li>
+                </ul>
             </div>
         </div>
 
         <!-- GitHub Link -->
-        <div class="bg-[#242424] rounded-xl p-6">
+        <div class="bg-[#242424] rounded-xl p-6 mb-8">
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">GitHub Repository</h2>
             <a href="https://github.com/Snevver/Hangman" target="_blank" class="inline-flex items-center text-[#FFC857] hover:text-[#FFD857] transition">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -58,8 +123,131 @@
                 Bekijk op GitHub
             </a>
         </div>
+
+        <!-- Media-->
+        <div class="container m-auto bg-[#242424] rounded-xl flex p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Media</h2>
+            <!-- Slideshow container -->
+            <div class="relative w-full max-w-6xl mx-auto border border-[#FFC857] rounded-xl overflow-hidden mt-8 mb-8">
+                <!-- Slide 1 -->
+                <div class="mySlides">
+                    <img src="../images/galgje_1.png" class="w-full h-auto">
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#242424] bg-opacity-75 px-4 py-2 mb-6 rounded text-center text-[#FFC857]">
+                        Start scherm
+                    </div>
+                </div>
+            
+                <!-- Slide 2 -->
+                <div class="mySlides hidden">
+                    <img src="../images/galgje_2.png" class="w-full h-auto">
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#242424] bg-opacity-75 px-4 py-2 mb-6 rounded text-center text-[#FFC857]">
+                        Begin van het spel
+                    </div>
+                </div>
+            
+                <!-- Slide 3 -->
+                <div class="mySlides hidden">
+                    <img src="../images/galgje_3.png" class="w-full h-auto">
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#242424] bg-opacity-75 px-4 py-2 mb-6 rounded text-center text-[#FFC857]">
+                        Tijdens het spel
+                    </div>
+                </div>
+
+                <div class="mySlides hidden">
+                    <img src="../images/galgje_4.png" class="w-full h-auto">
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#242424] bg-opacity-75 px-4 py-2 mb-6 rounded text-center text-[#FFC857]">
+                        Verlies scherm
+                    </div>
+                </div>
+
+                <div class="mySlides hidden">
+                    <img src="../images/galgje_5.png" class="w-full h-auto">
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#242424] bg-opacity-75 px-4 py-2 mb-6 rounded text-center text-[#FFC857]">
+                        Gewonne scherm
+                    </div>
+                </div>
+            
+                <!-- Navigation Buttons -->
+                <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#242424] bg-opacity-75 text-[#FFC857] rounded-full p-2 hover:bg-[#FFC857] hover:text-[#242424] transition" onclick="plusSlides(-1)">
+                    &#10094;
+                </button>
+                <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#242424] bg-opacity-75 text-[#FFC857] rounded-full p-2 hover:bg-[#FFC857] hover:text-[#242424] transition" onclick="plusSlides(1)">
+                    &#10095;
+                </button>
+            
+                <!-- Dots Navigation -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <span class="dot w-3 h-3 rounded-full bg-[#FFC857] cursor-pointer" onclick="currentSlide(1)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="currentSlide(2)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="currentSlide(3)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="currentSlide(4)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="currentSlide(5)"></span>
+                </div>
+            </div>            
+        </div>
     </div>
 
-    <!-- Media -->
+    <script>
+        let slideIndex = 1;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        
+        function plusSlides(n) {
+            console.log('Current slide:', slideIndex); // Debug logging
+            
+            // First hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.add("hidden");
+                dots[i].classList.remove("bg-[#FFC857]");
+                dots[i].classList.add("bg-gray-400");
+            }
+            
+            // Update index
+            slideIndex += n;
+            
+            // Handle wrapping
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            if (slideIndex < 1) {
+                slideIndex = slides.length;
+            }
+            
+            console.log('New slide:', slideIndex); // Debug logging
+            
+            // Show new slide
+            slides[slideIndex - 1].classList.remove("hidden");
+            dots[slideIndex - 1].classList.remove("bg-gray-400");
+            dots[slideIndex - 1].classList.add("bg-[#FFC857]");
+        }
+    
+        function currentSlide(n) {
+            // First hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.add("hidden");
+                dots[i].classList.remove("bg-[#FFC857]");
+                dots[i].classList.add("bg-gray-400");
+            }
+            
+            slideIndex = n;
+            
+            // Show new slide
+            slides[slideIndex - 1].classList.remove("hidden");
+            dots[slideIndex - 1].classList.remove("bg-gray-400");
+            dots[slideIndex - 1].classList.add("bg-[#FFC857]");
+        }
+    
+        // Initialize first slide
+        currentSlide(1);
+    
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                plusSlides(-1);
+            } else if (e.key === 'ArrowRight') {
+                plusSlides(1);
+            }
+        });
+    </script>
 </body>
 </html>
