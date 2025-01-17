@@ -271,7 +271,7 @@
             Er zijn verschillende manieren om contact met me op te nemen..
         </p>
         <h2 class="text-2xl font-medium mt-8">Stuur een email!</h2>
-        <form action="overig/stuur_email.php" method="post" class="w-full mt-4 space-y-4 max-w-lg">
+        <form id="contact-form" action="overig/stuur_email.php" method="post" class="w-full mt-4 space-y-4 max-w-lg">
             <div>
                 <label for="name" class="block text-lg text-[#EAEAEA]">Naam:</label>
                 <input type="text" id="name" name="name" required class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
@@ -288,7 +288,22 @@
         </form>
     </div>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init('r_0bdy5cbRuSAUAhR');
 
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_bk0mrfr', 'template_rrs10cl', this)
+                .then(function(response) {
+                    console.log('Success:', response);
+                    alert("Je bericht is verzonden!");
+                }, function(error) {
+                    console.log('Error:', error);
+                    alert("Oops! Er is iets fout gegaan! Probeer het later opnieuw.");
+                });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Zoek alle links met een hash (#) in de href
