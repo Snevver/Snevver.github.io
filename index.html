@@ -329,18 +329,23 @@
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             
+            // Log the form data to console for debugging
+            const formData = new FormData(this);
+            console.log('Form data:', Object.fromEntries(formData));
+            
             // Disable button and show loading state
             submitButton.disabled = true;
             submitButton.textContent = 'Bezig met verzenden...';
             
             emailjs.sendForm('service_bk0mrfr', 'template_rrs10cl', this)
-                .then(function() {
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
                     showAlert('Je bericht is verzonden!', true);
                     form.reset();
                 })
                 .catch(function(error) {
+                    console.log('FAILED...', error);
                     showAlert('Oops! Er is iets fout gegaan! Probeer het later opnieuw.', false);
-                    console.error('Error:', error);
                 })
                 .finally(function() {
                     // Re-enable button and restore text
