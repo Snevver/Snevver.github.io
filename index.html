@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sven Hoeksema - Portfolio</title>
-    <!-- Tailwind CSS -->
+    <link rel="shortcut icon" href="images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
@@ -23,63 +22,20 @@
             color: #FFC857;
             text-decoration: none;
         }
-
-        .pie-chart {
-            background:
-                radial-gradient(
-                    circle closest-side,
-                    transparent 100%,
-                    #1B1B1B 0
-                ),
-                conic-gradient(
-                    #ff9913 0,
-                    #ff9913 17.8%,
-                    #ffa938 0,
-                    #ffa938 27.1%,
-                    #ffb452 0,
-                    #ffb452 69.2%,
-                    #fec57c 0,
-                    #fec57c 87.9%,
-                    #fed095 0,
-                    #fed095 90.7%,
-                    #ffe6c2 0,
-                    #ffe6c2 100%
-            );
-            position: relative;
-            width: 500px;
-            min-height: 350px;
-            margin: 0;
-        }
-        .pie-chart figcaption {
-            position: absolute;
-            bottom: 1em;
-            right: 1em;
-            font-size: smaller;
-            text-align: right;
-        }
-        .pie-chart span:after {
-            display: inline-block;
-            content: "";
-            width: 0.8em;
-            height: 0.8em;
-            margin-left: 0.4em;
-            height: 0.8em;
-            border-radius: 0.2em;
-            background: currentColor;
-        }
     </style>
 </head>
-<body class="bg-[#1B1B1B] text-[#EAEAEA]">
 
-    <header class="bg-[#242424] py-4">
-        <div class="container mx-auto flex justify-between items-center">
+<body class="bg-[#1B1B1B] text-[#EAEAEA]">
+    <!-- Navbar -->
+    <header class="bg-[#242424] py-4 fixed top-0 z-50 w-full border border-0 border-b border-[#FFC857]">
+        <div id="top" class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center">
                 <img src="images/logo.png" alt="Logo" class="w-16 h-16 border-2 rounded-full border-[#FFC857]">
                 <h1 class="text-2xl font-semibold text-[#FFC857] ml-4">Sven Hoeksema</h1>
             </div>
     
-            <!-- Hamburger Menu -->
+            <!-- Dropdown icon -->
             <button id="menu-toggle" class="md:hidden text-[#EAEAEA] focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -106,7 +62,7 @@
     
     
 
-    <!-- Intro -->
+    <!-- Over mij -->
     <div class="container mx-auto flex flex-col items-center mt-8">
         <h1 class="text-6xl font-semibold text-[#FFC857]">Wie ben ik?</h1>
         <img src="images/sven.png" alt="Sven Hoeksema" class="w-80 h-80 rounded-full mt-4 border-4 border-[#FFC857]">
@@ -117,7 +73,7 @@
 
     <!-- Menu -->
     <div class="container mx-auto flex justify-center flex-wrap gap-8 mt-10">
-        <!-- Over mij -->
+        <!-- Over mij link -->
         <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -125,7 +81,7 @@
             <p class="text-3xl font-semibold text-[#FFC857]"><a href="#top">Over mij</a></p>
         </div>
 
-        <!-- Projecten -->
+        <!-- Projecten link -->
         <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
@@ -133,7 +89,7 @@
             <p class="text-3xl font-semibold text-[#FFC857]"><a href="#projects">Projecten</a></p>
         </div>
 
-        <!-- Skills -->
+        <!-- Skills link -->
         <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
@@ -141,7 +97,7 @@
             <p class="text-3xl font-semibold text-[#FFC857]"><a href="#skills">Skills</a></p>
         </div>
 
-        <!-- Contact -->
+        <!-- Contact link -->
         <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -154,6 +110,7 @@
 
     <!-- Mijn Projecten -->
     <div id="projects" class="container mx-auto flex justify-center flex-wrap gap-8 mt-10">
+        <!-- Intro text -->
         <div class="container flex flex-col text-center">
             <h1 class="text-6xl font-semibold text-[#FFC857]">Mijn Projecten</h1>
             <p class="text-lg mt-4 text-center max-w-2xl mx-auto">
@@ -192,17 +149,18 @@
 
     <div class="container h-64"></div>
 
-    <!-- Skills + Certificaten -->
+    <!-- Skills -->
     <div id="skills" class="py-16 bg-[#1B1B1B]">
         <div class="container mx-auto flex flex-col lg:flex-row lg:justify-between items-center lg:items-start gap-16">
             <div class="flex flex-col items-center lg:w-1/2">
+                <!-- Intro tekst -->
                 <div class="flex flex-col items-center lg:w-1/2">
                     <h1 class="text-6xl font-semibold text-[#FFC857]">Skills</h1>
                     <p class="text-lg mt-4 text-center max-w-3xl text-[#EAEAEA]">
                         Hieronder is een overzicht te zien van mijn vaardigheden, weergegeven in een <span class="text-[#FFC857]">cirkeldiagram</span>.
                     </p>
 
-                    <!-- Enhanced Pie Chart -->
+                    <!-- Cirkel diagram -->
                     <div class="relative w-64 h-64 rounded-full bg-gradient-to-t from-[#1B1B1B] via-[#1B1B1B] to-[#FFC857] mt-10">
                         <div class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,_#FFC857_19%,_#FF6F3C_19%_27%,_#D72638_27%_69%,_#26547C_69%_87%,_#9D5CFF_87%_90%,_#3DC9A7_90%_100%)]"></div>
                         <div class="absolute inset-6 bg-[#1B1B1B] rounded-full flex items-center justify-center">
@@ -212,7 +170,7 @@
                         </div>
                     </div>
 
-                    <!-- Pie Chart Legend -->
+                    <!-- Cirkel diagram legenda -->
                     <div class="mt-6">
                         <ul class="grid grid-cols-2 gap-4 text-[#EAEAEA] text-sm">
                             <li class="flex items-center">
@@ -238,65 +196,66 @@
                 </div>
             </div>
     
-            <!-- Certificates Section -->
+            <!-- Certificaten -->
             <div class="lg:w-1/2">
+                <!-- Intro tekst -->
                 <h1 class="text-6xl font-semibold text-[#FFC857] text-center">Certificaten</h1>
                 <p class="text-lg mt-4 text-center max-w-3xl mx-auto text-[#EAEAEA]">
                     Hier zijn enkele <span class="text-[#FFC857]">certificaten</span> te downloaden die mijn <span class="text-[#FFC857]">vaardigheden</span> en <span class="text-[#FFC857]">prestaties</span> bewijzen.
                 </p>
     
-                <!-- Certificates Grid -->
+                <!-- Certificaten grid -->
                 <div class="grid grid-cols-2 gap-8 mt-8">
-                    <!-- Certificate 1 -->
+                    <!-- Certificaat 1 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 1</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">Back-end Rookie</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat heb ik behaald na het succesvol afronden van mijn eerste back-end eindproject.</p>
+                        <a href="certificates/Back-end_rookie.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>
     
-                    <!-- Certificate 2 -->
+                    <!-- Certificaat 2 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 2</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">Database Advanced</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat heb ik behaald na het leren hoe complexe databases in elkaar zitten en hoe ik er zelf mee kan werken.</p>
+                        <a href="certificates/Database_Advanced.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>
     
-                    <!-- Certificate 3 -->
+                    <!-- Certificaat 3 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 3</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">Fullstack Webdeveloper</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat bewijst dat ik zowel front-end als back-end beheers en ze ook kan combineren.</p>
+                        <a href="certificates/Fullstack_Webdeveloper.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>
     
-                    <!-- Certificate 4 -->
+                    <!-- Certificaat 4 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 4</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">HTML/CSS Advanced</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat heb ik behaald na het bewijzen dat ik zowel HTML als CSS beheer op een gevorderd niveau.</p>
+                        <a href="certificates/HTML_CSS_Advanced.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>
     
-                    <!-- Certificate 5 -->
+                    <!-- Certificaat 5 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 5</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">PHP Novice</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat bewijst dat ik comfortabel ben met het coderen in PHP en alle bijhorende onderdelen.</p>
+                        <a href="certificates/PHP_Novice.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>
     
-                    <!-- Certificate 6 -->
+                    <!-- Certificaat 6 -->
                     <div class="border border-[#FFC857] rounded-lg p-6 bg-[#242424] text-center">
-                        <h3 class="text-2xl font-semibold text-[#FFC857]">Certificaat 6</h3>
-                        <p class="text-[#EAEAEA] mt-2">Beschrijving van certificaat.</p>
-                        <a href="#" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
+                        <h3 class="text-2xl font-semibold text-[#FFC857]">PHP Web</h3>
+                        <p class="text-[#EAEAEA] mt-2">Dit certificaat heb ik behaald na het beheersen van PHP in combinatie met talen als HTML, CSS en MySQL.</p>
+                        <a href="certificates/PHP_Web.pdf" download class="mt-4 inline-block px-4 py-2 bg-[#FFC857] text-[#242424] font-semibold rounded hover:bg-[#242424] hover:border hover:border-[#FFC857] hover:rounded transition card">
                             Download
                         </a>
                     </div>

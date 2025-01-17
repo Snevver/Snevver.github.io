@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Project Name] - Sven Hoeksema</title>
-    <!-- Tailwind CSS -->
+    <title>Pong - Sven Hoeksema</title>
+    <link rel="shortcut icon" href="../images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
@@ -30,17 +29,17 @@
         </div>
     </header>
 
-    <!-- Content -->
+    <!-- Inhoud -->
     <div class="container mx-auto mt-8 px-4">
         <h1 class="text-4xl font-semibold text-[#FFC857] mb-6">Pong</h1>
         
-        <!-- Project Description -->
+        <!-- Project omschrijving -->
         <div class="bg-[#242424] rounded-xl p-6 mb-8">
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Over dit project</h2>
             <p class="text-[#EAEAEA] mb-4">Dit is een versie van pong die ik heb gemaakt met behulp van Phaser. Dat is een C# framework waarmee je games voor in de browser kan maken. Aangezien ik interesse heb ik het ontwikkelen van games heb ik pong gemaakt om te oefenen. Het is niet precies zoals het originele pong, maar het is zeker een goed begin. Ik heb erg veel geleerd over hoe je C# gebruikt om vershillende dingen te maken. Ik wil hier zeker nog heel veel mee doen. Dit project staat helaas niet op Github, dus is de media het enige wat je nu van het spel kan zien...</p>
         </div>
 
-        <!-- Technologies Used -->
+        <!-- Gebruikte technologiën -->
         <div class="bg-[#242424] rounded-xl p-6 mb-8">
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Gebruikte technologieën</h2>
             <div class="flex flex-wrap gap-3">
@@ -58,16 +57,18 @@
             <h2 class="text-2xl font-semibold text-[#FFC857] mb-4">Media</h2>
             <!-- Slideshow container -->
             <div class="relative w-full max-w-6xl mx-auto border border-[#FFC857] rounded-xl overflow-hidden mt-8 mb-8">
-                <!-- Update each slide's image to contain within bounds -->
+
+                <!-- Slide 1 -->
                 <div class="mySlides">
                     <img src="../images/pong_1.png" class="w-full h-auto h-auto">
                 </div>
 
+                <!-- Slide 2 -->
                 <div class="mySlides hidden">
                     <img src="../images/pong_2.png" class="w-full h-auto">
                 </div>
 
-                <!-- Navigation Buttons -->
+                <!-- Navigatie knoppen -->
                 <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#242424] bg-opacity-75 text-[#FFC857] rounded-full p-2 hover:bg-[#FFC857] hover:text-[#242424] transition" onclick="plusSlides(-1)">
                     &#10094;
                 </button>
@@ -75,7 +76,7 @@
                     &#10095;
                 </button>
 
-                <!-- Dots Navigation -->
+                <!-- Navigatie puntjes -->
                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                     <span class="dot w-3 h-3 rounded-full bg-[#FFC857] cursor-pointer" onclick="currentSlide(1)"></span>
                     <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="currentSlide(2)"></span>
