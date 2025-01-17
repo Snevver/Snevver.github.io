@@ -279,13 +279,13 @@
 
         <form id="contact-form" class="w-full mt-4 space-y-4 max-w-lg">
             <div>
-                <label for="name" class="block text-lg text-[#EAEAEA]">Naam:</label>
-                <input type="text" id="name" name="name" required 
+                <label for="from_name" class="block text-lg text-[#EAEAEA]">Naam:</label>
+                <input type="text" id="from_name" name="from_name" required 
                     class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
             </div>
             <div>
-                <label for="email" class="block text-lg text-[#EAEAEA]">Email Adres:</label>
-                <input type="email" id="email" name="email" required 
+                <label for="to_name" class="block text-lg text-[#EAEAEA]">Email Adres:</label>
+                <input type="email" id="to_name" name="to_name" required 
                     class="w-full p-3 mt-2 bg-[#333] text-[#EAEAEA] rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC857]" />
             </div>
             <div>
@@ -308,7 +308,7 @@
     <script>
         // Initialize EmailJS
         (function() {
-            emailjs.init("r_0bdy5cbRuSAUAhR"); // While not ideal, this is necessary for GitHub Pages
+            emailjs.init("r_0bdy5cbRuSAUAhR");
         })();
 
         // Form elements
@@ -347,7 +347,7 @@
                     submitButton.disabled = false;
                     submitButton.textContent = 'Verstuur';
                 });
-            });
+        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
