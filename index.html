@@ -7,25 +7,19 @@
     <link rel="shortcut icon" href="images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        h1 {
-            font-family: 'Poppins', sans-serif;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(255, 200, 87, 0.2);
-        }
-        a:hover {
-            color: #FFC857;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="bg-[#1B1B1B] text-[#EAEAEA]">
+    <!-- Achtergrond figuren -->
+    <div class="background-shapes">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+        <div class="bg-shape shape-5"></div>
+    </div>
+    
     <!-- Navbar -->
     <header class="bg-[#242424] py-4 fixed top-0 z-50 w-full border border-0 border-b border-[#FFC857]">
         <div class="container mx-auto flex justify-between items-center">
@@ -59,63 +53,71 @@
             <a href="#contact" class="block px-4 py-2 hover:bg-[#444444]">Contact</a>
         </div>
     </header>
+
+    <div class="container h-28"></div>
     
     <!-- Over mij -->
-    <div id="top" class="container mx-auto flex flex-col items-center mt-8">
-        <h1 class="text-6xl font-semibold text-[#FFC857] mt-24">Wie ben ik?</h1>
-        <img src="images/sven.png" alt="-" class="w-80 h-80 rounded-full mt-4 border-4 border-[#FFC857]">
-        <p class="text-lg mt-4 text-center max-w-2xl">
-            <span class="text-[#FFC857]">Hey!</span> Mijn naam is <span class="text-[#FFC857]">Sven Hoeksema</span>. Ik ben een gepassioneerde <span class="text-[#FFC857]">backend-web ontwikkelaar</span> die ook veel interesse heeft in het worden van een <span class="text-[#FFC857]">fullstack developer</span>! Momenteel volg ik de opleiding Software Developer aan de <span class="text-[#FFC857]">BIT Academy</span>. Hier heb ik al veel ervaring opgedaan met talen als <span class="text-[#FFC857]">PHP</span>, <span class="text-[#FFC857]">SQL</span>, <span class="text-[#FFC857]">HTML</span> en <span class="text-[#FFC857]">CSS</span>. Ook heb ik leren coderen met technieken als <span class="text-[#FFC857]">OOP</span> en het gebruik van <span class="text-[#FFC857]">UML</span>!
-        </p>
+    <div id="top" class="container mx-auto flex flex-col md:flex-row items-center md:mt-24 relative">
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC857] rounded-lg opacity-30 rotate-12 blur-lg"></div>
+        <div class="absolute -bottom-20 -right-20 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg"></div>
+
+        <!-- Afbeelding -->
+        <div class="relative w-full md:w-1/2 flex justify-center">
+            <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg border-4 border-[#FFC857]">
+                <img src="images/sven.png" alt="Sven Hoeksema" class="w-full h-full object-cover">
+            </div>
+            <!-- Decoratief element -->
+            <div class="absolute top-4 -left-8 w-28 h-28 md:w-36 md:h-36 bg-[#FFC857] rounded-full opacity-40 blur-lg"></div>
+        </div>
+
+        <!-- Tekst -->
+        <div class="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12 text-center md:text-left relative z-10">
+            <h1 class="text-6xl font-semibold text-[#FFC857]">Wie ben ik?</h1>
+            <p class="text-lg mt-6 max-w-lg">
+                <span class="text-[#FFC857] font-bold">Hey!</span> Mijn naam is <span class="text-[#FFC857] font-bold">Sven Hoeksema</span>. Ik ben een gepassioneerde 
+                <span class="text-[#FFC857]">backend-web ontwikkelaar</span> met een grote interesse in het worden van een 
+                <span class="text-[#FFC857]">fullstack developer</span>. Momenteel studeer ik aan de <a href="https://www.bit-academy.nl/" target="_blank"><span class="text-[#FFC857] underline">BIT Academy</span></a>, waar ik werk aan innovatieve projecten en moderne technologieën leer. 
+                Al sinds kinds af aan ben ik geïnteresseerd in computers en de werking van technologie. Naast programmeren verzorg ik ook graag planten, speel ik gitaar en game ik met vrienden.
+            </p>
+        </div>
     </div>
 
-    <!-- Menu -->
-    <div class="container mx-auto flex justify-center flex-wrap gap-8 mt-10">
-        <!-- Over mij link -->
-        <a href="#top">
-            <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg>
-                <p class="text-3xl font-semibold text-[#FFC857]">Over mij</p>
+    <!-- Tijdlijn -->
+    <div class="container mx-auto mt-16 relative">
+        <h2 class="text-4xl font-semibold text-[#FFC857] text-center">Mijn Schoolcarrière</h2>
+        <div class="relative mt-12">
+            <!-- Verticale lijn -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#FFC857]"></div>
+        
+            <!-- Tijdlijn item - Links -->
+            <div class="relative flex items-center mb-8">
+                <div class="w-1/2 text-right pr-6">
+                    <h3 class="text-xl font-semibold">2019-2023</h3>
+                    <p>HAVO aan het Baken Park Lyceum in Almere</p>
+                </div>
+                <div class="w-4 h-4 bg-[#FFC857] rounded-full absolute left-[49.5%]"></div>
             </div>
-        </a>
-
-        <!-- Projecten link -->
-        <a href="#projects">
-            <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-                </svg>
-                <p class="text-3xl font-semibold text-[#FFC857]">Projecten</p>
+        
+            <!-- Tijdlijn item - Rechts -->
+            <div class="relative flex items-center mb-8">
+                <div class="w-1/2"></div>
+                <div class="w-4 h-4 bg-[#FFC857] rounded-full absolute left-[49.5%]"></div>
+                <div class="w-1/2 pl-6">
+                    <h3 class="text-xl font-semibold">2024-Heden</h3>
+                    <p>Software Development aan de BIT Academy in Amsterdam</p>
+                </div>
             </div>
-        </a>
-
-        <!-- Skills link -->
-        <a href="#skills">
-            <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                </svg>
-                <p class="text-3xl font-semibold text-[#FFC857]">Skills</p>
-            </div>
-        </a>
-
-        <!-- Contact link -->
-        <a href="#Contact">
-            <div class="card flex flex-col items-center bg-[#242424] border border-[#FFC857] rounded-xl w-80 h-80 p-6 hover:bg-[#333333] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#FFC857] mb-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                </svg>
-                <p class="text-3xl font-semibold text-[#FFC857]">Contact</p>
-            </div>
-        </a>
+            <div class="absolute top-4 -left-8 w-28 h-28 md:w-36 md:h-36 bg-[#FFC857] rounded-full opacity-40 blur-lg"></div>
+            <div class="absolute -bottom-8 right-6 w-20 h-20 md:w-28 md:h-28 bg-[#FFC857] rounded-full opacity-30 blur-lg"></div>
+        </div>        
     </div>
-
-    <div class="container h-64"></div>
+    
+    <div class="container h-28"></div>
 
     <!-- Mijn Projecten -->
     <div id="projects" class="container mx-auto flex justify-center flex-wrap gap-8 mt-10">
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC857] rounded-lg opacity-30 rotate-12 blur-lg"></div>
+        <div class="absolute -bottom-20 -right-20 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg"></div>
         <!-- Intro text -->
         <div class="container flex flex-col text-center">
             <h1 class="text-6xl font-semibold text-[#FFC857]">Mijn Projecten</h1>
@@ -161,10 +163,10 @@
         </div>
     </div>
 
-    <div class="container h-64"></div>
+    <div class="container h-28"></div>
 
     <!-- Skills -->
-    <div id="skills" class="py-16 bg-[#1B1B1B]">
+    <div id="skills" class="py-16">
         <div class="container mx-auto flex flex-col lg:flex-row lg:justify-between items-center lg:items-start gap-16">
             <!-- Cirkel diagram-->
             <div class="flex flex-col items-center lg:w-1/2">
@@ -279,7 +281,8 @@
         </div>
     </div>
 
-    <div class="container h-64"></div>
+    <div class="container h-28"></div>
+
 
     <!-- Contact -->
     <div id="Contact" class="flex flex-col items-center px-4 py-8 lg:w-1/2 mx-auto">
