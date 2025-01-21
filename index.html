@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="overflow-x-hidden" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body class="bg-[#1B1B1B] text-[#EAEAEA]">
+<body class="bg-[#1B1B1B] text-[#EAEAEA] overflow-x-hidden">
     <!-- Achtergrond figuren -->
     <div class="background-shapes">
         <div class="bg-shape shape-1"></div>
@@ -24,13 +24,13 @@
     <header class="bg-[#242424] py-4 fixed top-0 z-50 w-full border border-0 border-b border-[#FFC857]">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center">
+            <div class="flex items-center ml-4">
                 <img src="images/logo.png" alt="Logo" class="w-16 h-16 border-2 rounded-full border-[#FFC857]">
                 <h1 class="text-lg lg:text-2xl font-semibold text-[#FFC857] ml-4">Sven Hoeksema</h1>
             </div>
     
             <!-- Dropdown icon -->
-            <button id="menu-toggle" class="md:hidden text-[#EAEAEA] focus:outline-none mr-24">
+            <button id="menu-toggle" class="md:hidden text-[#EAEAEA] focus:outline-none mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -59,7 +59,7 @@
     <!-- Over mij -->
     <div class="container mx-auto flex flex-col md:flex-row items-center md:mt-24 relative">
         <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC857] rounded-lg opacity-30 rotate-12 blur-lg"></div>
-        <div class="absolute -bottom-20 -right-20 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg"></div>
+        <div class="absolute bottom-0 right-0 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg translate-x-1/4 translate-y-1/4"></div>
 
         <!-- Afbeelding -->
         <div class="relative w-full md:w-1/2 flex justify-center">
@@ -117,7 +117,7 @@
     <!-- Mijn Projecten -->
     <div class="container mx-auto flex justify-center flex-wrap gap-8 mt-10">
         <div class="absolute -top-10 -left-10 w-40 h-40 bg-[#FFC857] rounded-lg opacity-30 rotate-12 blur-lg"></div>
-        <div class="absolute -bottom-20 -right-20 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg"></div>
+        <div class="absolute bottom-0 right-0 w-52 h-52 bg-[#FFC857] rounded-full opacity-20 blur-lg translate-x-1/4 translate-y-1/4"></div>
         
         <!-- Intro text -->
         <div class="container flex flex-col text-center">
