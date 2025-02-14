@@ -1,4 +1,20 @@
-// translations.js
+// Debounce functie om snelle herhaalde calls te voorkomen
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Bijhouden van huidige taal
+let currentLanguage = 'nl';
+
+// Translation data
 const translations = {
     en: {
         // Navbar
@@ -9,13 +25,22 @@ const translations = {
 
         // Header
         "Wie ben ik?": "Who am I?",
-        "Hey! Mijn naam is Sven Hoeksema. Ik ben een gepassioneerde backend-web ontwikkelaar met een grote interesse in het worden van een fullstack developer. Momenteel studeer ik aan de BIT Academy, waar ik werk aan innovatieve projecten en moderne technologiën leer. Al sinds kinds af aan ben ik geïnteresseerd in computers en de werking van technologie. Naast programmeren verzorg ik ook graag planten, speel ik gitaar en game ik met vrienden.": "Hey! My name is Sven Hoeksema. I am a passionate backend web developer with a strong interest in becoming a full-stack developer. Currently, I am studying at BIT Academy, where I work on innovative projects and learn about modern technologies. From a young age, I have been fascinated by computers and how technology works. In addition to programming, I also enjoy taking care of plants, playing the guitar, and gaming with friends.",
-
-        // About section text
+        "Hey! Mijn naam is": "Hey! My name is",
+        "Ik ben een gepassioneerde": "I am a passionate",
+        "backend-web ontwikkelaar": "backend web developer",
+        "met een grote interesse in het worden van een": "with a strong interest in becoming a",
+        "fullstack developer": "full-stack developer",
+        "Momenteel studeer ik aan de": "Currently, I am studying at",
+        "waar ik werk aan innovatieve projecten en moderne technologiën leer": "where I work on innovative projects and learn about modern technologies",
         "Al sinds kinds af aan ben ik": "Ever since I was a child, I've been",
-        "in computers en de werking van technologie. Naast programmeren verzorg ik ook graag": "in computers and how technology works. Besides programming, I also like taking care of",
+        "geïnteresseerd": "interested",
+        "in computers en de werking van technologie": "in computers and how technology works",
+        "Naast programmeren verzorg ik ook graag": "Besides programming, I also like taking care of",
+        "planten": "plants",
         "speel ik": "I play",
+        "gitaar": "guitar",
         "en game ik met": "and I game with",
+        "vrienden": "friends",
 
         // Education
         "Mijn Schoolcarrière": "My Education",
@@ -30,14 +55,14 @@ const translations = {
         "gemaakt! Hieronder vind je een overzicht van een paar van mijn": "! Below you'll find an overview of some of my",
         "favoriete": "favorite",
         "projecten. Klik op een project om meer": "projects. Click on a project for more",
-        "informatie": "information",
-        "te krijgen!": "!",
+        "informatie": "information!",
 
         // Skills section
         "Alle onderstaande benoemde": "All the mentioned",
         "technologiën": "technologies",
         "beheers ik op een": "I master at a",
         "goed niveau": "good level",
+        "Het": "The",
         "cirkel diagram": "pie chart",
         "geeft weer in welke taal ik het meeste": "shows in which language I",
         "codeer": "code the most",
@@ -49,17 +74,23 @@ const translations = {
         "Hier zijn enkele": "Here are some",
         "certificaten": "certificates",
         "te zien die mijn": "that prove my",
-        "vaardigheden": "skills",
         "en": "and",
         "prestaties": "achievements",
         "bewijzen": "prove",
         "Bekijk": "View",
+        "Dit certificaat heb ik behaald na het succesvol afronden van mijn eerste back-end eindproject.": "I earned this certificate after successfully completing my first back-end final project.",
+        "Dit certificaat heb ik behaald na het leren hoe complexe databases in elkaar zitten en hoe ik er zelf mee kan werken.": "I earned this certificate after learning how complex databases work and how to work with them.",
+        "Dit certificaat bewijst dat ik zowel front-end als back-end beheers en ze ook kan combineren.": "This certificate proves that I master both front-end and back-end and can combine them.",
+        "Dit certificaat heb ik behaald na het bewijzen dat ik zowel HTML als CSS beheer op een gevorderd niveau.": "I earned this certificate after proving that I master both HTML and CSS at an advanced level.",
+        "Dit certificaat heb ik behaald na het afronden van de OOP intro module. De eindopdracht van deze module was OOP Blackjack, wat te vinden is tussen mijn projecten.": "I earned this certificate after completing the OOP intro module. The final assignment for this module was OOP Blackjack, which can be found among my projects.",
+        "Dit certificaat heb ik behaald na het beheersen van PHP in combinatie met talen als HTML, CSS en MySQL.": "I earned this certificate after mastering PHP in combination with languages like HTML, CSS, and MySQL.",
 
         // Contact section
         "Heb je een vraag of wil je contact opnemen?": "Do you have a question or want to get in touch?",
         "Voel je vrij om een email te sturen naar": "Feel free to send an email to",
         "of stuur direct een mail in het onderstaande formulier!": "or send a direct message using the form below!",
         "Ik ben ook altijd bereikbaar op": "I'm also always available on",
+        "of vind mij op": "or find me on",
         "Stuur een email!": "Send an email!",
         "Uw Naam:": "Your Name:",
         "Uw Email Adres:": "Your Email Address:",
@@ -75,50 +106,104 @@ const translations = {
     }
 };
 
-// Language switcher functionality
-function initializeLanguageSystem() {
-    // Add language switcher to navbar
-    const navbarRight = document.querySelector('.container.mx-auto.flex.justify-between.items-center');
-    const languageSwitcher = document.createElement('div');
-    navbarRight.insertBefore(languageSwitcher, navbarRight.children[1]);
+// Function to switch language
+const switchLanguage = debounce((newLang) => {
+    // Voorkom onnodige vertaling naar dezelfde taal
+    if (newLang === currentLanguage) {
+        return;
+    }
 
-    // Initialize translation attributes
-    const translatableElements = document.querySelectorAll('h1, h2, h3, p, a, label, button, span');
-    translatableElements.forEach(element => {
-        const text = element.textContent.trim();
-        if (text && !element.hasAttribute('data-translate')) {
-            element.setAttribute('data-translate', '');
-            element.setAttribute('data-original', text);
+    try {
+        // Reset alle tekst eerst naar originele Nederlandse versie als we van EN naar NL gaan
+        if (newLang === 'nl' && currentLanguage === 'en') {
+            resetToOriginalDutch();
         }
-    });
 
-    // Add event listener to language switcher
-    document.getElementById('language-switcher').addEventListener('change', (e) => {
-        switchLanguage(e.target.value);
-        localStorage.setItem('preferred-language', e.target.value);
-    });
+        // Get all text nodes
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+        );
 
-    // Load preferred language if saved
-    const preferredLanguage = localStorage.getItem('preferred-language');
-    if (preferredLanguage) {
-        document.getElementById('language-switcher').value = preferredLanguage;
-        switchLanguage(preferredLanguage);
+        let node;
+        const processed = new Set();
+
+        while (node = walker.nextNode()) {
+            if (node.parentElement.tagName === 'SCRIPT' || !node.textContent.trim()) continue;
+            if (processed.has(node)) continue;
+            
+            processed.add(node);
+            const originalText = node.textContent.trim();
+
+            // Vertaal alleen als er daadwerkelijk een vertaling beschikbaar is
+            if (newLang === 'en' && translations.en[originalText]) {
+                node.textContent = node.textContent.replace(
+                    new RegExp(`^${originalText}$`, 'm'),
+                    translations.en[originalText]
+                );
+            }
+        }
+
+        // Update formulier elementen
+        updateFormElements(newLang);
+        
+        // Update huidige taal
+        currentLanguage = newLang;
+        
+        // Sla voorkeur op
+        localStorage.setItem('preferred-language', newLang);
+
+    } catch (error) {
+        console.error('Fout bij het wisselen van taal:', error);
+        // Herstel naar laatste werkende staat
+        currentLanguage = localStorage.getItem('preferred-language') || 'nl';
+    }
+}, 250); // 250ms debounce tijd
+
+// Helper function om terug te zetten naar originele Nederlandse tekst
+function resetToOriginalDutch() {
+    const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+
+    let node;
+    const processed = new Set();
+
+    while (node = walker.nextNode()) {
+        if (node.parentElement.tagName === 'SCRIPT' || !node.textContent.trim()) continue;
+        if (processed.has(node)) continue;
+
+        processed.add(node);
+        const currentText = node.textContent.trim();
+
+        // Zoek de originele Nederlandse tekst
+        for (const [dutch, english] of Object.entries(translations.en)) {
+            if (currentText.includes(english)) {
+                node.textContent = node.textContent.replace(
+                    new RegExp(english, 'g'),
+                    dutch
+                );
+            }
+        }
     }
 }
 
-function switchLanguage(language) {
-    document.documentElement.setAttribute('lang', language);
-    
-    const elements = document.querySelectorAll('[data-translate]');
-    elements.forEach(element => {
-        const originalText = element.getAttribute('data-original');
-        if (language === 'en' && translations.en[originalText]) {
-            element.textContent = translations.en[originalText];
-        } else if (language === 'nl') {
-            element.textContent = element.getAttribute('data-original');
-        }
-    });
-}
+// Event listener voor de taalwissel knop
+document.addEventListener('DOMContentLoaded', () => {
+    const languageButton = document.getElementById('language-toggle');
+    if (languageButton) {
+        languageButton.addEventListener('click', () => {
+            const newLang = currentLanguage === 'nl' ? 'en' : 'nl';
+            switchLanguage(newLang);
+        });
+    }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeLanguageSystem);
+    // Initialiseer met opgeslagen taalvoorkeur
+    const savedLang = localStorage.getItem('preferred-language') || 'nl';
+    switchLanguage(savedLang);
+});

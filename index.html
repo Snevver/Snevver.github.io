@@ -42,21 +42,6 @@
                 <a href="#projects" class="text-[#EAEAEA] p-2 rounded-xl hover:text-[#FFC857] card hover:border-2 hover:border-[#FFC857] transition">Mijn projecten</a>
                 <a href="#skills" class="text-[#EAEAEA] p-2 rounded-xl hover:text-[#FFC857] card hover:border-2 hover:border-[#FFC857] transition">Skills</a>
                 <a href="#contact" class="text-[#EAEAEA] p-2 rounded-xl hover:text-[#FFC857] card hover:border-2 hover:border-[#FFC857] transition">Contact</a>
-
-                <!-- Language Dropdown -->
-                <!-- <div class="relative group">
-                    <div class="text-[#EAEAEA] p-2 rounded-xl hover:text-[#FFC857] flex items-center gap-2 cursor-pointer">
-                        <span id="selected-language">🌍 NL</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                    <div id="language-menu" class="absolute left-0 mt-2 bg-[#333333] text-[#EAEAEA] rounded-lg shadow-lg 
-                        opacity-0 scale-95 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100">
-                        <a data-lang="nl" class="block px-4 py-2 hover:bg-[#444444] cursor-pointer">🇳🇱 Nederlands</a>
-                        <a data-lang="en" class="block px-4 py-2 hover:bg-[#444444] cursor-pointer">🇬🇧 English</a>
-                    </div>
-                </div> -->
             </nav>
         </div>
 
@@ -68,7 +53,6 @@
             <a href="#contact" class="block px-4 py-2 hover:bg-[#444444]">Contact</a>
         </div>
     </header>
-
 
     <div id="top" class="container h-28"></div>
     
@@ -92,7 +76,7 @@
             <p class="text-lg mt-6 max-w-lg mx-auto md:mx-0">
                 <span class="text-[#FFC857] font-bold">Hey!</span> Mijn naam is <span class="text-[#FFC857] font-bold">Sven Hoeksema</span>. Ik ben een gepassioneerde 
                 <span class="text-[#FFC857]">backend-web ontwikkelaar</span> met een grote interesse in het worden van een 
-                <span class="text-[#FFC857]">fullstack developer</span>. Momenteel studeer ik aan de <a href="https://www.bit-academy.nl/" target="_blank"><span class="text-[#FFC857] underline">BIT Academy</span></a>, waar ik werk aan innovatieve projecten en moderne technologiën leer. 
+                <span class="text-[#FFC857]">fullstack developer</span>. Momenteel studeer ik aan de <a href="https://www.bit-academy.nl/" target="_blank"><span class="text-[#FFC857] underline">BIT Academy</span></a>, waar ik werk aan innovatieve projecten en moderne technologieën leer. 
                 Al sinds kinds af aan ben ik <span class="text-[#FFC857]">geïnteresseerd</span> in computers en de werking van technologie. Naast programmeren verzorg ik ook graag <span class="text-[#FFC857]">planten</span>, speel ik <span class="text-[#FFC857]">gitaar</span> en game ik met <span class="text-[#FFC857]">vrienden</span>.
             </p>
         </div>
@@ -190,7 +174,7 @@
                 <div class="flex flex-col items-center lg:w-1/2">
                     <h1 class="text-4xl lg:text-6xl font-semibold text-[#FFC857]">Skills</h1>
                     <p class="text-lg mt-4 text-center max-w-3xl text-[#EAEAEA]">
-                        Alle onderstaande benoemde <span class="text-[#FFC857]">technologiën</span> beheers ik op een <span class="text-[#FFC857]">goed niveau</span>. Het <span class="text-[#FFC857]">cirkel diagram</span> geeft weer in welke taal ik het meeste <span class="text-[#FFC857]">codeer</span>.
+                        Alle onderstaande benoemde <span class="text-[#FFC857]">technologieën</span> beheers ik op een <span class="text-[#FFC857]">goed niveau</span>. Het <span class="text-[#FFC857]">cirkel diagram</span> geeft weer in welke taal ik het meeste <span class="text-[#FFC857]">codeer</span>.
                     </p>
 
                     <!-- Cirkel diagram -->
@@ -377,23 +361,6 @@
         </div>
     </footer>
     
-    <!-- <script src="js/translate.js"></script> -->
-    <!-- <script>
-        document.querySelectorAll('#language-menu a').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const selectedLang = event.target.getAttribute('data-lang');
-                localStorage.setItem('preferred-language', selectedLang);
-                document.getElementById('selected-language').textContent = selectedLang === 'nl' ? "🌍 NL" : "🌍 GB";
-                switchLanguage(selectedLang); // Deze functie zit al in je translate.js
-            });
-        });
-    
-        // Stel de juiste taal in bij laden van de pagina
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferred-language') || 'nl';
-            document.getElementById('selected-language').textContent = savedLang === 'nl' ? "🌍 NL" : "🌍 GB";
-        });
-    </script> -->
     <!-- EmailJS CDN -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
